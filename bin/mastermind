@@ -1,9 +1,16 @@
 #!/usr/bin/env ruby
-$LOAD_PATH.push File.join(File.dirname(__FILE__), "/../lib")
+$: << File.join(File.dirname(__FILE__), "/../lib")
 require 'mastermind'
 
-game = Mastermind::Game.new(STDOUT)
-game.start(%w[r g y c])
-while guess = gets
-  game.guess guess.split
+def start_game
+  game = Mastermind::Game.new(STDOUT)
+  colors = %w[r g y c b w].sort_by{rand}.slice(0..3)
+  game.start(colors)
+  while input = gets
+    break if game.over?
+    game.guess(input.split)
+  end
+  start_game if input.chomp == "y"
 end
+
+start_game
