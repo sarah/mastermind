@@ -1,0 +1,1 @@
+I worked through the Mastermind example in the RSpec book (http://www.pragprog.com/titles/achbd/the-rspec-book) in order to become more familiar with Cucumber and Mastermind.  I took it further, though, so this is a finished, playable, game of Mastermind written in Ruby using RSpec and Cucumber.
