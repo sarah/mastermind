@@ -35,12 +35,14 @@ module Mastermind
     def game_over_message
       message = "You broke the code in #{@guess_count} guesses."
       case @guess_count
-        when 1: "Congratulations! You broke the code in #{@guess_count} guess."
-        when 2: "Congratulations! #{message}"
-        when 10:  won? \
-                  ? message \
-                  : "Sorry! You didn't break the code in 10 guesses. Game Over."
-        else  message
+        when 1 
+          "Congratulations! You broke the code in #{@guess_count} guess."
+        when 2 
+          "Congratulations! #{message}"
+        when 10 
+          won?  ? message : "Sorry! You didn't break the code in 10 guesses. Game Over."
+        else  
+          message
       end      
     end
  
